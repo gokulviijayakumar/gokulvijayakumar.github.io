@@ -1,0 +1,65 @@
+<script src='https://d3js.org/d3.v7.min.js'></script> 
+ 
+<script> 
+ 
+let shapescsv = 'https://raw.githubusercontent.com/gokulviijayakumar/gokulvijayakumar.github.io/main/shapes.csv';  
+
+d3.csv(shapescsv, function(data) { 
+   
+		if (data.shape == 'rectangle' ) {
+     console.log( data.shape); 
+     svg.append("rect") 
+            .attr("x", data.x)               //code of rectangle
+  					.attr("y", data.y)              
+            .attr("width", data.width) 
+            .attr("height", data.height) 
+            .attr("fill", data.fill); 
+            
+    } else if ( data.shape == 'circle' ) {
+    //Append circle  
+    console.log( data.shape);
+    svg.append("circle") 
+       .attr("cx", data.cx)                //code of circle
+       .attr("cy", data.cy) 
+       .attr("fill", data.fill)
+       .attr("r", data.r); 
+ 
+   } else if ( data.shape == 'ellipse' ) {
+    		console.log( data.shape);
+    		svg.append("ellipse") 
+       		.attr("cx", data.cx)              //code of ellipse
+       		.attr("cy", data.cy) 
+       		.attr("rx", data.rx) 
+          .attr("fill", data.fill)
+       		.attr("ry", data.ry); 
+          
+    } else if ( data.shape == 'line' ) {
+    		 console.log( data.shape);
+    		 svg.append("line") 
+             .attr("x1", data.x1) 
+  			     .attr("y1", data.y1)         //code of line
+             .attr("x2", data.x2) 
+             .attr("fill", data.fill)
+  			     .attr("y2", data.y2)
+            
+             .attr("stroke", data.stroke); 
+    }
+   
+   
+   
+   
+   
+   
+    
+}); 
+  //Create SVG element 
+ var svg = d3.select("body") 
+    .append("svg") 
+    .attr("width",  600) 
+    .attr("height", 600) 
+    .style("border", '1px solid green'); 
+    
+   
+ 
+ 
+</script>

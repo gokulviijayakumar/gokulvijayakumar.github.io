@@ -1,0 +1,13 @@
+<script src='https://d3js.org/d3.v7.min.js'></script>
+
+<script>
+  var bodyElement = d3.select("body");
+  var div = bodyElement.append("div");
+  div.text("Hello World!");
+
+
+  // added .style
+
+  d3.select("body").append("div").text("Hello World!").style('color', 'green');
+
+</script>

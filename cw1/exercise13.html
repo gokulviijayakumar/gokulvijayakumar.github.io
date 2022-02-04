@@ -1,0 +1,77 @@
+<script src='https://d3js.org/d3.v7.min.js'></script>
+
+<script>
+  //importing data from csv
+  let shapescsv = 'https://raw.githubusercontent.com/gokulviijayakumar/gokulvijayakumar.github.io/main/shapes.csv';
+
+  d3.csv(shapescsv, function(data) {
+
+    //same as previous code
+    if (data.shape == 'rectangle') {
+
+      svg.append("rect")
+        .attr("x", data.x)
+        .attr("y", data.y)
+        .attr("width", data.width)
+        .attr("height", data.height)
+        .attr("fill", data.fill);
+
+    } else if (data.shape == 'circle') {
+      //Append circle  
+      console.log(data.shape);
+      svg.append("circle")
+        .attr("cx", data.cx)
+        .attr("cy", data.cy)
+        .attr("fill", data.fill)
+        .attr("r", data.r);
+      //append ellipse
+    } else if (data.shape == 'ellipse') {
+      console.log(data.shape);
+      svg.append("ellipse")
+        .attr("cx", data.cx)
+        .attr("cy", data.cy)
+        .attr("rx", data.rx)
+        .attr("fill", data.fill)
+        .attr("ry", data.ry);
+      //append line     
+    } else if (data.shape == 'line') {
+      console.log(data.shape);
+      svg.append("line")
+        .attr("x1", data.x1)
+        .attr("y1", data.y1)
+        .attr("x2", data.x2)
+        .attr("y2", data.y2)
+
+        .attr("stroke", data.stroke);
+    }
+
+
+
+  });
+  //Create SVG element 
+  var svg = d3.select("body")
+    .append("svg")
+    .attr("width", 300)
+    .attr("height", 300)
+    .style("border", '1px solid green');
+
+
+  d3.csv(shapescsv, function(data) {
+
+    //rectangle update and exit function 
+    if (data.shape == 'rectangle') {
+      console.log("check");
+      svg.append("rect")
+        .join(
+
+          update => {
+            console.log('update called');
+          },
+          exit => {
+            console.log('exit called');
+          }
+        );
+    }
+  });
+
+</script>

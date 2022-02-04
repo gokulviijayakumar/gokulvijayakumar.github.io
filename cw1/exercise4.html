@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+
+<script src='https://d3js.org/d3.v7.min.js'></script>
+<html>
+  <script>     //same as previous code
+
+    for (var i = 0, n = 10; i < n; i++) {
+      var divTag = document.createElement("div");
+      let text = i;
+      divTag.id = "div" + i;
+      divTag.innerHTML = i + 1;
+      document.body.appendChild(divTag);
+      if (i < 5) {
+        divTag.className = 'red';
+      } else {
+        divTag.className = 'green';
+      }
+    }
+    //selecting and updating the first div
+
+    d3.selectAll(".red").style('color', 'red');
+    d3.selectAll(".green").style('color', 'green');
+    d3.select("#div0").text("start")
+    d3.select("#div0").style("color", "purple");
+
+  </script>
+
+</html>

@@ -1,0 +1,28 @@
+<script src='https://d3js.org/d3.v7.min.js'></script>
+<p id="output"></p>
+<p id="demo"></p>
+<script>
+  let titaniccsv = 'https://raw.githubusercontent.com/dsindy/kaggle-titanic/master/data/test.csv';
+
+  let male_count = 0,
+    female_count = 0;
+  var line_counter = 0; //to check the end of file
+
+  d3.csv(titaniccsv, function(data) {
+  
+
+    line_counter += 1;
+    if (data.Sex == 'male') {    //if else condition to increment the number of male and female
+      male_count += 1;
+    } else {
+      female_count = female_count + 1;
+    }
+    if (line_counter == 418) {
+      d3.select("body").append("p").text('Count for Name with Mr:' + male_count);
+      d3.select("body").append("p").text('Count for Name with Mrs:' + female_count);
+
+    }
+
+  });
+
+</script>
