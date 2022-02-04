@@ -1,0 +1,69 @@
+<script src='https://d3js.org/d3.v7.min.js'></script> 
+ 
+<script> 
+ 
+let csvfile = 'https://raw.githubusercontent.com/gokulviijayakumar/gokulvijayakumar.github.io/main/bar_chart%20-%20Sheet1.csv';
+const data = [0,0,0,0,0,0,0];
+var i = 0;
+d3.csv(csvfile, function(f) {
+
+    
+     
+     data[i] = f.data;
+     i += 1;
+     
+     
+     if(i == 7){
+     const width     = 1000; 
+     const barHeight = 20; 
+     const margin    = 1; 
+var scale = d3.scaleLinear() 
+ .domain([50, 1000]) 
+       .range([50, 600]); 
+ 
+var svg = d3.select("body") 
+        .append("svg") 
+        .attr("width", width) 
+        .attr("height", barHeight * data.length); 
+ 
+var g = svg.selectAll("g") 
+        .data(data) 
+        .enter() 
+        .append("g") 
+        .attr("transform", function (d, i) { 
+          return "translate(0," + i * barHeight + ")"; 
+        }); 
+ 
+g.append("rect") 
+   .attr("width", function (d) { 
+     return scale(d); 
+     
+   }) 
+ 	.attr('fill', function (d) { 
+ 		if ( scale(d) < 100) {
+     		 return 'green';
+     } else if (  scale(d) > 500 ) {
+     			return 'red'; 
+     } else {
+     	return 'blue';
+     }
+     }) 
+   .attr("height", barHeight - margin);
+   
+  
+ 
+g.append("text") 
+   .attr("x", function (d) { return (scale(d)); }) 
+   .attr("y", barHeight / 2) 
+   .attr("dy", ".35em") 
+   .style('text-anchor', 'end') 
+    .attr("font-size", "12px") 
+ .attr("stroke", "white") 
+   .text(function (d) { return d; });
+     
+     }
+    
+
+}); 
+
+</script>

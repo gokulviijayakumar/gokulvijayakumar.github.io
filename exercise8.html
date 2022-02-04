@@ -1,0 +1,24 @@
+<script src='https://d3js.org/d3.v7.min.js'></script>
+
+<script>
+  var myData = ['a', 4, 1, 'b', 6, 2, 8, 9, 'z'];
+
+
+  var span = d3.select("body") //used span instead of p
+    .selectAll("span")
+    .data(myData)
+    .enter()
+    .append('span')
+    .text(function(d, i) {
+      return d;
+    })
+
+    .style("color", function(d, i) {
+      if (d >= 'a' && d <= 'z') { //if value is alpha blue color
+        return "blue";
+      } else {                    //else if it is a number then green color
+        return "green";
+      }
+    });
+
+</script>
