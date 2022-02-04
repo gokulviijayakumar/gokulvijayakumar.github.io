@@ -2,4 +2,4 @@ shape,x,y,x1,x2,x3,x4,cx,cy,r,rx,ry,height,width,stroke,fill,stroke-width
 circle,,,,,,,25,75,20,,,,,red,blue,5
 rectangle,10,10,,,,,,,,,,50,50,black,red,5
 ellipse,,,,,,,75,75,,20,5,,,blue,yellow,5
-line,,,10,50,110,150,,,,,,,,green,purple,5
+line,,,100,200,200,220,,,,,,,,green,purple,5
