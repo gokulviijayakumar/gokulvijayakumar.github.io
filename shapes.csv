@@ -1,5 +1,5 @@
 shape,x,y,x1,x2,x3,x4,cx,cy,r,rx,ry,height,width,stroke,fill,stroke-width
-circle,,,,,,,150,50,20,,,,,red,blue,5
-rectangle,10,10,,,,,,,,,,50,50,black,red,5
-ellipse,,,,,,,75,100,,30,10,,,blue,yellow,5
-line,,,100,200,200,220,,,,,,,,green,purple,5
+circle,,,,,,,35,85,30,,,,,red,blue,5
+rectangle,20,20,,,,,,,,,,50,50,black,red,5
+ellipse,,,,,,,85,85,,30,15,,,blue,yellow,5
+line,,,150,300,300,350,,,,,,,,green,purple,5
